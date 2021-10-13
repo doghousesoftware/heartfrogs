@@ -8,10 +8,19 @@ function numberCodeReceived (codeNumber: number) {
         serial.writeLine("HearFrogs")
     }
 }
+input.onButtonPressed(Button.A, function () {
+	
+})
 function stringValueReceived (stringReceived: string) {
 	
 }
 radio.onReceivedString(function (receivedString) {
     stringValueReceived(receivedString)
+})
+input.onButtonPressed(Button.B, function () {
+	
+})
+input.onGesture(Gesture.Shake, function () {
+	
 })
 radio.setGroup(23)
