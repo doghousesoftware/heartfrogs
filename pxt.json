@@ -1,5 +1,5 @@
 {
-    "name": "heartfrogs",
+    "name": "RadioSerial",
     "description": "",
     "dependencies": {
         "core": "*",
