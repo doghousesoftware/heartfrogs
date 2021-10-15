@@ -1,5 +1,5 @@
 input.onPinPressed(TouchPin.P0, function () {
-    radio.sendString("Weapons xReady")
+    radio.sendString("" + (wr))
 })
 radio.onReceivedNumber(function (receivedNumber) {
     numberCodeReceived(receivedNumber)
@@ -19,19 +19,19 @@ input.onButtonPressed(Button.A, function () {
     radio.sendNumber(892)
 })
 function stringValueReceived (stringReceived: string) {
-    if (stringReceived == "Weapons Ready") {
+    if (stringReceived == wr) {
         serialWriter(0, stringReceived)
-    } else if (stringReceived == "Launched!") {
+    } else if (stringReceived == ld) {
         serialWriter(0, stringReceived)
-    } else if (stringReceived == "HeartFrogs") {
+    } else if (stringReceived == panic) {
         serialWriter(0, stringReceived)
     } else {
-        serialWriter(0, "HeartFrogs")
+        serialWriter(0, panic)
     }
 }
 input.onButtonPressed(Button.AB, function () {
     radio.sendNumber(7)
-    radio.sendString("HeartFrogs")
+    radio.sendString("" + (panic))
 })
 radio.onReceivedString(function (receivedString) {
     stringValueReceived(receivedString)
@@ -40,7 +40,7 @@ input.onButtonPressed(Button.B, function () {
     radio.sendNumber(555)
 })
 input.onPinPressed(TouchPin.P1, function () {
-    radio.sendString("Launched!")
+    radio.sendString("" + (ld))
 })
 function serialWriter (num: number, text: string) {
     if (text == "") {
@@ -49,4 +49,10 @@ function serialWriter (num: number, text: string) {
         serial.writeLine(text)
     }
 }
+let panic = ""
+let ld = ""
+let wr = ""
 radio.setGroup(23)
+wr = "Weapons Ready"
+ld = "Launched!"
+panic = "HeartFrogs"
