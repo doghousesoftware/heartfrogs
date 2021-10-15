@@ -1,5 +1,5 @@
 input.onPinPressed(TouchPin.P0, function () {
-    radio.sendString("" + (wr))
+    radio.sendString("Weapons Ready")
 })
 radio.onReceivedNumber(function (receivedNumber) {
     numberCodeReceived(receivedNumber)
@@ -31,7 +31,7 @@ function stringValueReceived (stringReceived: string) {
 }
 input.onButtonPressed(Button.AB, function () {
     radio.sendNumber(7)
-    radio.sendString("" + (panic))
+    radio.sendString("HeartFrogs")
 })
 radio.onReceivedString(function (receivedString) {
     stringValueReceived(receivedString)
@@ -40,7 +40,7 @@ input.onButtonPressed(Button.B, function () {
     radio.sendNumber(555)
 })
 input.onPinPressed(TouchPin.P1, function () {
-    radio.sendString("" + (ld))
+    radio.sendString("Launched!")
 })
 function serialWriter (num: number, text: string) {
     if (text == "") {
